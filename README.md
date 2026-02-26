@@ -29,6 +29,8 @@ A modern, production-ready **Next.js 16 + React 19 + TypeScript** boilerplate bu
 | Tailwind   | 4       |
 | Node       | 20      |
 
+| Zod | 4 |
+
 ---
 
 ## 🛠 Installation
@@ -144,6 +146,28 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 ---
 
+## 🛡 Environment Validation (Zod)
+
+This template uses [Zod](https://zod.dev/) for type-safe environment variable validation in `lib/env.ts`:
+
+```ts
+import { z } from 'zod';
+
+const envSchema = z.object({
+  NEXT_PUBLIC_APP_PORT: z.number().default(3000),
+});
+
+export const env = envSchema.parse({
+  NEXT_PUBLIC_APP_PORT: process.env.NEXT_PUBLIC_APP_PORT
+    ? parseInt(process.env.NEXT_PUBLIC_APP_PORT, 10)
+    : undefined,
+});
+```
+
+This ensures your environment variables are validated and type-safe at runtime.
+
+---
+
 ## 📌 Available Scripts
 
 ```json
@@ -154,9 +178,37 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
   "lint": "eslint .",
   "format": "prettier --write .",
   "format:check": "prettier --check .",
-  "prepare": "husky"
+  "prepare": "husky",
+  "create": "ts-node scripts/create.js"
 }
 ```
+
+---
+
+## ⚡️ Page & Component Generator
+
+Quickly scaffold new pages or UI components with the built-in script:
+
+### Usage
+
+```
+yarn run create <page|component> <Name>
+```
+
+#### Examples
+
+- Create a new page:
+  ```bash
+  yarn run create page about
+  # ➜ app/about/page.tsx
+  ```
+- Create a new UI component:
+  ```bash
+  yarn run create component button
+  # ➜ components/ui/Button.tsx, styles/components/ui/Button.module.scss
+  ```
+
+The script auto-generates boilerplate code and folders for fast development.
 
 ---
 
@@ -176,7 +228,3 @@ This template is designed to:
 
 **Diwas Dhakal**
 Nepal 🇳🇵
-
-```
-
-```
