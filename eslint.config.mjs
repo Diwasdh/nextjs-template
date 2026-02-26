@@ -8,6 +8,13 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   prettier,
+  {
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
+  },
   globalIgnores([
     // Default ignores of eslint-config-next:
     '.next/**',

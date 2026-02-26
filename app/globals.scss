@@ -1,0 +1,54 @@
+/* Import Tailwind utilities if needed (optional) */
+@import 'tailwindcss';
+
+/* ------------------------------
+   Root variables (light theme)
+------------------------------- */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --primary: #1f2937; // dark gray
+  --secondary: #4b5563; // gray
+
+  --container-bg: #f9fafb;
+  --font-sans: 'Arial', Helvetica, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+/* ------------------------------
+   Inline theme helpers
+   (Optional semantic mapping)
+------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ------------------------------
+   Dark mode using prefers-color-scheme
+------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    --primary: #f9fafb;
+    --secondary: #6b7280;
+    --container-bg: #1f2937;
+  }
+}
+
+/* ------------------------------
+   Global body and base styles
+------------------------------- */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
