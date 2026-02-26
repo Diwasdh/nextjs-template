@@ -6,19 +6,38 @@ A modern, production-ready **Next.js 16 + React 19 + TypeScript** boilerplate bu
 
 Create a new project using this template with your favorite package manager:
 
-```bash
-# Yarn
+<!-- Toggle buttons for package managers -->
+<div style="display: flex; gap: 8px; margin-bottom: 16px;">
+  <button onclick="showCmd('yarn')" style="padding: 6px 12px; cursor: pointer;">Yarn</button>
+  <button onclick="showCmd('npm')" style="padding: 6px 12px; cursor: pointer;">npm</button>
+  <button onclick="showCmd('pnpm')" style="padding: 6px 12px; cursor: pointer;">pnpm</button>
+  <button onclick="showCmd('bun')" style="padding: 6px 12px; cursor: pointer;">Bun</button>
+</div>
+
+<!-- Commands -->
+<pre id="yarn" style="display:block;">
 yarn create next-app --example https://github.com/Diwasdh/nextjs-template app_name
+</pre>
 
-# npm
+<pre id="npm" style="display:none;">
 npx create-next-app --example https://github.com/Diwasdh/nextjs-template app_name
+</pre>
 
-# pnpm
+<pre id="pnpm" style="display:none;">
 pnpm create next-app --example https://github.com/Diwasdh/nextjs-template app_name
+</pre>
 
-# Bun
-bunx create-next-app --example https://github.com/Diwasdh/nextjs-template app_name
-```
+<pre id="bun" style="display:none;">
+bunx create next-app --example https://github.com/Diwasdh/nextjs-template app_name
+</pre>
+
+<script>
+function showCmd(manager) {
+  ['yarn', 'npm', 'pnpm', 'bun'].forEach(id => {
+    document.getElementById(id).style.display = id === manager ? 'block' : 'none';
+  });
+}
+</script>
 
 ---
 
