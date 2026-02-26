@@ -2,6 +2,24 @@
 
 A modern, production-ready **Next.js 16 + React 19 + TypeScript** boilerplate built for scalability and clean development workflows.
 
+## 🚦 Usage
+
+Create a new project using this template with your favorite package manager:
+
+```bash
+# Yarn
+yarn create next-app --example https://github.com/Diwasdh/nextjs-template app_name
+
+# npm
+npx create-next-app --example https://github.com/Diwasdh/nextjs-template app_name
+
+# pnpm
+pnpm create next-app --example https://github.com/Diwasdh/nextjs-template app_name
+
+# Bun
+bunx create-next-app --example https://github.com/Diwasdh/nextjs-template app_name
+```
+
 ---
 
 ## ✨ Features
