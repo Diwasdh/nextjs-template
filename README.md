@@ -273,6 +273,4 @@ This template is designed to:
 **Diwas Dhakal**
 Nepal 🇳🇵
 
-```
-
-```
+---
