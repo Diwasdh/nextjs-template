@@ -1,19 +1,21 @@
 import fs from 'fs';
 import path from 'path';
 
-type CreateType = 'page' | 'component';
-
 const args = process.argv.slice(2);
-const type = args[0] as CreateType;
+const type = args[0]; // 'page' or 'component'
 const name = args[1];
 
 if (!type || !name) {
-  console.log('Usage: yarn create <page|component> <Name>');
+  console.log('Usage: yarn run create <page|component> <Name>');
   process.exit(1);
 }
 
-const pascalCase = (str: string) =>
-  str.replace(/(^\w|-\w)/g, (match) => match.replace('-', '').toUpperCase());
+// Convert kebab-case or snake_case to PascalCase
+const pascalCase = (str) =>
+  str
+    .split(/[-_]/g)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join('');
 
 const ROOT = process.cwd();
 
@@ -29,14 +31,12 @@ import { Container } from '@/components/ui/container'
 
 export default function ${pascalCase(pageName)}() {
   return (
-    <main>
       <Base>
         <Container>
-          <h1 className="text-4xl font-bold">${pascalCase(pageName)} Page</h1>
+          <h1>${pascalCase(pageName)} Page</h1>
           <p>This is the ${pascalCase(pageName)} page.</p>
         </Container>
       </Base>
-    </main>
   )
 }
 `;
@@ -46,10 +46,15 @@ export default function ${pascalCase(pageName)}() {
 } else if (type === 'component') {
   const compName = pascalCase(name);
   const compDir = path.join(ROOT, 'components', 'ui');
+  const scssDir = path.join(ROOT, 'styles', 'components', 'ui');
   if (!fs.existsSync(compDir)) fs.mkdirSync(compDir, { recursive: true });
-  const filePath = path.join(compDir, `${compName}.tsx`);
+  if (!fs.existsSync(scssDir)) fs.mkdirSync(scssDir, { recursive: true });
 
-  const content = `import { ReactNode } from 'react'
+  const tsxFilePath = path.join(compDir, `${compName}.tsx`);
+  const scssFilePath = path.join(scssDir, `${compName}.module.scss`);
+
+  const tsxContent = `import { ReactNode } from 'react'
+import styles from '@/styles/components/ui/${compName}.module.scss'
 
 interface ${compName}Props {
   children?: ReactNode
@@ -57,12 +62,20 @@ interface ${compName}Props {
 }
 
 export function ${compName}({ children, className = '' }: ${compName}Props) {
-  return <div className={className}>{children}</div>
+  return <div className={\`\${styles.root} \${className}\`}>{children}</div>
 }
 `;
 
-  fs.writeFileSync(filePath, content);
-  console.log(`✅ Component created at ${filePath}`);
+  const scssContent = `/* Styles for ${compName} component */
+.root {
+  display: flex;
+}
+`;
+
+  fs.writeFileSync(tsxFilePath, tsxContent);
+  fs.writeFileSync(scssFilePath, scssContent);
+  console.log(`✅ Component created at ${tsxFilePath}`);
+  console.log(`✅ SCSS file created at ${scssFilePath}`);
 } else {
   console.log('Type must be "page" or "component"');
   process.exit(1);

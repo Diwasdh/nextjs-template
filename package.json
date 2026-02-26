@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "prepare": "husky",
-    "create": "ts-node scripts/create.ts"
+    "create": "ts-node scripts/create.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
