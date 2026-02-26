@@ -1,36 +1,182 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js 16 Production Template
 
-## Getting Started
+A modern, production-ready **Next.js 16 + React 19 + TypeScript** boilerplate built for scalability and clean development workflows.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- ✅ Next.js 16 (App Router)
+- ✅ React 19
+- ✅ TypeScript
+- ✅ ESLint (core-web-vitals + TypeScript)
+- ✅ Prettier
+- ✅ Husky + lint-staged (pre-commit protection)
+- ✅ Tailwind CSS v4
+- ✅ Docker (multi-stage production build)
+- ✅ Yarn 1
+
+---
+
+## 📦 Tech Stack
+
+| Tool       | Version |
+| ---------- | ------- |
+| Next.js    | 16      |
+| React      | 19      |
+| TypeScript | 5       |
+| ESLint     | 9       |
+| Tailwind   | 4       |
+| Node       | 20      |
+
+---
+
+## 🛠 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧑‍💻 Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+yarn dev
+```
 
-## Learn More
+App runs at:
 
-To learn more about Next.js, take a look at the following resources:
+```
+http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗 Production Build
 
-## Deploy on Vercel
+```bash
+yarn build
+yarn start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🐳 Docker
+
+### Build Image
+
+```bash
+docker build -t nextjs-template .
+```
+
+### Run Container
+
+```bash
+docker run -p 3000:3000 nextjs-template
+```
+
+---
+
+## 🎨 Code Quality
+
+### Lint
+
+```bash
+yarn lint
+```
+
+### Format
+
+```bash
+yarn format
+```
+
+### Check Formatting
+
+```bash
+yarn format:check
+```
+
+---
+
+## 🛡 Pre-Commit Protection
+
+Husky + lint-staged automatically:
+
+- Runs ESLint
+- Formats staged files
+- Blocks commits if errors exist
+
+No manual setup required after install.
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── app/
+├── public/
+├── .husky/
+├── eslint.config.mjs
+├── next.config.ts
+├── Dockerfile
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create:
+
+```
+.env.local
+```
+
+Example:
+
+```
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+---
+
+## 📌 Available Scripts
+
+```json
+{
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint .",
+  "format": "prettier --write .",
+  "format:check": "prettier --check .",
+  "prepare": "husky"
+}
+```
+
+---
+
+## 🔥 Philosophy
+
+This template is designed to:
+
+- Be production-ready from day one
+- Enforce clean code automatically
+- Support Docker deployment
+- Scale for SaaS or enterprise apps
+- Maintain a professional workflow
+
+---
+
+## 👨‍💻 Author
+
+**Diwas Dhakal**
+Nepal 🇳🇵
+
+```
+
+```
