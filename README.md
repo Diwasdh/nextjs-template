@@ -2,42 +2,47 @@
 
 A modern, production-ready **Next.js 16 + React 19 + TypeScript** boilerplate built for scalability and clean development workflows.
 
+---
+
 ## 🚦 Usage
 
 Create a new project using this template with your favorite package manager:
 
-<!-- Toggle buttons for package managers -->
-<div style="display: flex; gap: 8px; margin-bottom: 16px;">
-  <button onclick="showCmd('yarn')" style="padding: 6px 12px; cursor: pointer;">Yarn</button>
-  <button onclick="showCmd('npm')" style="padding: 6px 12px; cursor: pointer;">npm</button>
-  <button onclick="showCmd('pnpm')" style="padding: 6px 12px; cursor: pointer;">pnpm</button>
-  <button onclick="showCmd('bun')" style="padding: 6px 12px; cursor: pointer;">Bun</button>
-</div>
+<details>
+<summary>Yarn</summary>
 
-<!-- Commands -->
-<pre id="yarn" style="display:block;">
+```bash
 yarn create next-app --example https://github.com/Diwasdh/nextjs-template app_name
-</pre>
+```
 
-<pre id="npm" style="display:none;">
+</details>
+
+<details>
+<summary>npm</summary>
+
+```bash
 npx create-next-app --example https://github.com/Diwasdh/nextjs-template app_name
-</pre>
+```
 
-<pre id="pnpm" style="display:none;">
+</details>
+
+<details>
+  <summary>pnpm</summary>
+
+```bash
 pnpm create next-app --example https://github.com/Diwasdh/nextjs-template app_name
-</pre>
+```
 
-<pre id="bun" style="display:none;">
+</details>
+
+<details>
+  <summary>Bun</summary>
+
+```bash
 bunx create next-app --example https://github.com/Diwasdh/nextjs-template app_name
-</pre>
+```
 
-<script>
-function showCmd(manager) {
-  ['yarn', 'npm', 'pnpm', 'bun'].forEach(id => {
-    document.getElementById(id).style.display = id === manager ? 'block' : 'none';
-  });
-}
-</script>
+</details>
 
 ---
 
@@ -65,8 +70,7 @@ function showCmd(manager) {
 | ESLint     | 9       |
 | Tailwind   | 4       |
 | Node       | 20      |
-
-| Zod | 4 |
+| Zod        | 4       |
 
 ---
 
@@ -235,11 +239,14 @@ yarn run create <page|component> <Name>
 #### Examples
 
 - Create a new page:
+
   ```bash
   yarn run create page about
   # ➜ app/about/page.tsx
   ```
+
 - Create a new UI component:
+
   ```bash
   yarn run create component button
   # ➜ components/ui/Button.tsx, styles/components/ui/Button.module.scss
@@ -265,3 +272,7 @@ This template is designed to:
 
 **Diwas Dhakal**
 Nepal 🇳🇵
+
+```
+
+```
